@@ -5,7 +5,7 @@ import type { SteeringControlsProps } from "../customTypes/interfaces"
 export default function Hud({ position, updateAxis }: SteeringControlsProps) {
     return (
         <div className="hud-container">
-            <div className="container">
+            <div className="flex-container">
                 <Header />
                 <Outlet />
                 <SteeringControls

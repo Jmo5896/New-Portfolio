@@ -4,7 +4,7 @@ import Hud from "./components/Hud";
 import type { TPosition, TAxis } from "./customTypes/types";
 
 export default function App() {
-  const [cameraPosition, setPosition] = useState<TPosition>([1.15, .01, 3])
+  const [cameraPosition, setPosition] = useState<TPosition>([-.92, 0.14, 3.44])
 
   const updateAxis = (axis: TAxis, newValue: number) => {
     const axisIndex = axis === 'x' ? 0 : axis === 'y' ? 1 : 2;

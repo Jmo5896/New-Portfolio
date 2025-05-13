@@ -5,6 +5,7 @@ export default function PositionSlider({ label, axis, updateAxis, value }: Posit
 
     const handleSlider = (e: { target: { value: any; }; }) => {
         const newValue = e.target.value
+
         updateAxis(axis, newValue)
     }
 
@@ -14,6 +15,9 @@ export default function PositionSlider({ label, axis, updateAxis, value }: Posit
             <Form.Range
                 value={value}
                 onChange={handleSlider}
+                min={-10}
+                max={10}
+                step={.01}
             />
         </>
     )

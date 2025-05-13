@@ -1,8 +1,8 @@
 import { Suspense } from "react"
 // import { Canvas, useThree } from "@react-three/fiber"
 import { Canvas } from "@react-three/fiber"
-// import { Stars, PerspectiveCamera } from "@react-three/drei"
-import { Stars, OrbitControls, PerspectiveCamera } from "@react-three/drei"
+import { Stars, PerspectiveCamera } from "@react-three/drei"
+// import { Stars, OrbitControls, PerspectiveCamera } from "@react-three/drei"
 // import * as THREE from 'three';
 import Planet1 from "./Planet1";
 import planet1File from './gltfFiles/Planet1.gltf'
@@ -35,7 +35,7 @@ export default function StarryCanvas({ cameraPosition }: StarryCanvasProps) {
                         url={planet1File}
                     />
                 </ Suspense>
-                <OrbitControls />
+                {/* <OrbitControls /> */}
             </Canvas>
         </div>
     )
