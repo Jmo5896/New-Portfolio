@@ -1,14 +1,13 @@
-import { useEffect } from 'react';
-import { useLoader } from '@react-three/fiber';
+import { useEffect, useRef } from 'react';
+import { useLoader, useFrame } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import * as THREE from 'three';
 
-interface planet1Props {
-    url: string;
-}
+import type { planet1Props } from '../../customTypes/interfaces';
 
 const Planet1 = ({ url }: planet1Props) => {
     const gltf = useLoader(GLTFLoader, url);
+    const planetRef = useRef<THREE.Object3D>({} as THREE.Object3D);
 
     useEffect(() => {
         if (gltf) {
@@ -21,7 +20,12 @@ const Planet1 = ({ url }: planet1Props) => {
         }
     }, [gltf]);
 
-    return gltf ? <primitive object={gltf.scene} /> : null;
+    useFrame(() => {
+        // planetRef.current.rotation.x += 0.01;
+        planetRef.current.rotation.y += 0.001;
+    })
+
+    return gltf ? <primitive ref={planetRef} object={gltf.scene} /> : null;
 }
 
 export default Planet1
