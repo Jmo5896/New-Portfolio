@@ -16,6 +16,19 @@ body {
     z-index: 0;
 }
 
+.full-screen {
+    height: 100%;
+    width: 100%;
+}
+
+.control-pad {
+    position: fixed;
+    z-index: 2;
+    bottom: 0;
+    right: 0;
+    margin: 2%;
+}
+
 .hud-container {
     position: absolute;
     height: 100%;
