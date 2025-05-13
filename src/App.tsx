@@ -1,14 +1,25 @@
 import { useState } from "react";
 import StarryCanvas from "./components/3dAssets/StarryCanvas";
 import Hud from "./components/Hud";
-import type { TPosition } from "./customTypes/types";
+import type { TPosition, TAxis } from "./customTypes/types";
 
 export default function App() {
   const [cameraPosition, setPosition] = useState<TPosition>([1.15, .01, 3])
+
+  const updateAxis = (axis: TAxis, newValue: number) => {
+    const axisIndex = axis === 'x' ? 0 : axis === 'y' ? 1 : 2;
+    const currentPosition: TPosition = [...cameraPosition];
+    currentPosition[axisIndex] = newValue;
+    setPosition(currentPosition)
+  }
+
   return (
     <>
       <StarryCanvas cameraPosition={cameraPosition} />
-      <Hud />
+      <Hud
+        position={cameraPosition}
+        updateAxis={updateAxis}
+      />
     </>
   )
 }
